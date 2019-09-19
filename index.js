@@ -7,7 +7,6 @@ const PORT = 3001
 app.use(bodyParser.json())
 app.use(cors())
 
-
 app.get('/', (req, res) => {
     res.send('Hello world from get!')
     console.log('got something!')
