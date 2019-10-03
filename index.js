@@ -51,7 +51,6 @@ app.put('/', (req, res) => {
             .catch(err => console.log(err))
     })
     client.close()
-
 })
 
 app.delete('/', (req, res) => {
