@@ -19,8 +19,11 @@ app.get('/', (req, res) => {
     console.log('get called!')
     client.connect(err => {
         if (err) res.send(err)
-        client.db('tvdemodb').collection('tvdemocol')
-            .find().toArray().then(r => res.send(r));
+        client.db('tvdemodb')
+            .collection('tvdemocol')
+            .find().toArray()
+            .then(r => res.send(r))
+            .catch(err => console.log(err))
     })
     client.close()
 })
@@ -57,8 +60,11 @@ app.delete('/', (req, res) => {
     console.log('delete func here!', req.body)
     client.connect(err => {
         if (err) res.send(err)
-        client.db('tvdemodb').collection('tvdemocol')
-            .deleteOne({ _id: MongoDb.ObjectId(req.body._id) }).then(r => res.send(r))
+        client.db('tvdemodb')
+            .collection('tvdemocol')
+            .deleteOne({ _id: MongoDb.ObjectId(req.body._id) })
+            .then(r => res.send(r))
+            .catch(err => console.log(err))
     })
 })
 
